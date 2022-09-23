@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../../domain/use_case/authentication.dart';
 
 class AuthenticationController extends GetxController {
+
   var _logged = false.obs;
   final Authentication _authentication = Get.find<Authentication>();
 
@@ -22,9 +23,18 @@ class AuthenticationController extends GetxController {
 
   // para cada uno llamar los métodos del use_case authentication
 
-  Future<bool> login(user, password) async {}
+  Future<bool> login(user, password) async {
+    Future<bool> aux = _authentication.login(user, password);
+    initializeRoute();
+    return aux;
+  }
 
-  Future<bool> signup(user, password) async {}
+  Future<bool> signup(user, password) async {
+    return _authentication.signup(user, password);
+  }
 
-  void logout() {}
+  void logout() {
+    _authentication.logout();
+    initializeRoute();
+  }
 }

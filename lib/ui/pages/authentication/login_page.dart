@@ -41,6 +41,7 @@ class _LoginPageState extends State<LoginPage> {
                       key: const Key('loginEmail'),
                       controller: _emailController,
                       decoration: const InputDecoration(labelText: 'Email'),
+                      // ignore: body_might_complete_normally_nullable
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Enter email";

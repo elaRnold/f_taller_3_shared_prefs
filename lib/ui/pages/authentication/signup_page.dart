@@ -40,6 +40,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       key: const Key('signUpEmail'),
                       controller: _emailController,
                       decoration: const InputDecoration(labelText: 'Email'),
+                      // ignore: body_might_complete_normally_nullable
                       validator: (value) {
                         if (value!.isEmpty) {
                           return "Enter email";
